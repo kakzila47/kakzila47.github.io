@@ -9,10 +9,7 @@
   <body>
     <header>
       <h1>밀슈 위키</h1>
-      <h1><%= user %></h1>
-      <% const currentUser = user || {}; %> <% if (currentUser.username) { %>
       <div>
-        <p>로그인된 사용자: <%= currentUser.username %></p>
         <form action="/logout" method="POST">
           <button type="submit">로그아웃</button>
         </form>
@@ -20,7 +17,6 @@
           <a href="/edit">문서 만들기</a>
         </nav>
       </div>
-      <% } else { %>
       <h3>로그인</h3>
       <form action="/login" method="POST">
         <label for="username">사용자 이름:</label>
@@ -31,7 +27,6 @@
         <br />
         <button type="submit">로그인</button>
       </form>
-      <% } %>
     </header>
 
     <main>
@@ -43,9 +38,7 @@
         <li>
           <a href="/view/<%= pageName %>"><%= pageName %></a>
         </li>
-        <% }) %> <% } else { %>
         <li>문서가 없습니다.</li>
-        <% } %>
       </ul>
     </main>
   </body>
