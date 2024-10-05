@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>오토코 위키</title>
+  </head>
+  <body>
+    <header>
+      <h1>오토코 위키</h1>
+      <h1><%= user %></h1>
+      <% const currentUser = user || {}; %> <% if (currentUser.username) { %>
+      <div>
+        <p>로그인된 사용자: <%= currentUser.username %></p>
+        <form action="/logout" method="POST">
+          <button type="submit">로그아웃</button>
+        </form>
+        <nav>
+          <a href="/edit">문서 만들기</a>
+        </nav>
+      </div>
+      <% } else { %>
+      <h3>로그인</h3>
+      <form action="/login" method="POST">
+        <label for="username">사용자 이름:</label>
+        <input type="text" id="username" name="username" required />
+        <br />
+        <label for="password">비밀번호:</label>
+        <input type="password" id="password" name="password" required />
+        <br />
+        <button type="submit">로그인</button>
+      </form>
+      <% } %>
+    </header>
+
+    <main>
+      <h2>대문</h2>
+      <p>문서 목록:</p>
+      <ul>
+        <% if (pageNames && pageNames.length > 0) { %> <%
+        pageNames.forEach(pageName => { %>
+        <li>
+          <a href="/view/<%= pageName %>"><%= pageName %></a>
+        </li>
+        <% }) %> <% } else { %>
+        <li>문서가 없습니다.</li>
+        <% } %>
+      </ul>
+    </main>
+  </body>
+</html>
