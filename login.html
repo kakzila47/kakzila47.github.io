@@ -7,10 +7,6 @@
   </head>
   <body>
     <h1>로그인</h1>
-    <% if (error) { %>
-    <p style="color: red"><%= error %></p>
-    <% } %>
-
     <form action="/login" method="POST">
       <div>
         <label for="username">사용자 이름:</label>
