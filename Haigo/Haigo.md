@@ -1,2 +1,3 @@
 # 하이고 제작노트
-* [하이고](/Haigo.md)
+* [문법](/Haigo/Grammer.md)
+* [단어](/Haigo/Word.md)
